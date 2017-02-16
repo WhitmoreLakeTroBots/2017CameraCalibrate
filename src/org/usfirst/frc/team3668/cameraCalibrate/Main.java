@@ -13,9 +13,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		GripPipeline gripPipeline = new GripPipeline();
-
+		int totalContourWidth = 0;
+		int counter = 0;
 		Mat image;
-		image = Imgcodecs.imread("E:\\calibrate1.jpeg");
+		image = Imgcodecs.imread("C:\\Users\\Trobots\\Documents\\camera calibrate pictures\\calibrate10.jpeg");
 		gripPipeline.process(image);
 
 		for (MatOfPoint contour : gripPipeline.filterContoursOutput()) {
@@ -25,8 +26,11 @@ public class Main {
 //					new Point(boundingBox.x + boundingBox.width + 2,
 //							boundingBox.y + boundingBox.height + 2),
 //					new Scalar(255, 255, 255), 2);
+			totalContourWidth = totalContourWidth + boundingBox.width;
+			counter++;
 			System.out.println(boundingBox.width);
 		}
+		System.out.println(2.544834 + 77.97764*Math.pow(Math.E,(-0.03725993*(totalContourWidth/counter))));
 
 	}
 

@@ -3,6 +3,8 @@ package org.usfirst.frc.team3668.cameraCalibrate;
 import java.io.Console;
 import java.io.IOException;
 
+import javax.swing.BoundedRangeModel;
+
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Rect;
@@ -75,6 +77,7 @@ public class Main {
 				totalContourWidth = totalContourWidth + boundingBox.width;
 				counter++;
 				System.out.println(boundingBox.width);
+				
 			}
 			if (counter == 0) {
 				System.out.println("Contour not found");
@@ -82,7 +85,7 @@ public class Main {
 				System.out.print("Distance to target ");
 				System.out
 						.println(2.544834 + 77.97764 * Math.pow(Math.E, (-0.03725993 * (totalContourWidth / counter))));
-
+				
 			}
 			if (saveImage) {
 				Imgcodecs.imwrite(

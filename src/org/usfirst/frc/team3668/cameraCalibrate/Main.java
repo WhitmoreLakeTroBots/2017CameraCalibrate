@@ -21,7 +21,7 @@ public class Main {
 		gripPipeline = new GripPipeline();
 		frameGrabber = new FrameGrabber();
 		// int character;
-		frameGrabber.start(1, 640, 480);
+		frameGrabber.start(0, 640, 480);
 		imageCounter = 1;
 		image = null;
 		String keyInput;
@@ -89,7 +89,7 @@ public class Main {
 			}
 			if (saveImage) {
 				Imgcodecs.imwrite(
-						"C:\\Users\\Trobots\\Documents\\camera calibrate pictures\\keyTest" + imageCounter + ".jpeg",
+						"C:\\temp\\visionSample" + imageCounter + ".jpeg",
 						image);
 				imageCounter++;
 			}
